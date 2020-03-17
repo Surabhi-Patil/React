@@ -1,0 +1,13 @@
+1) return() should have only one parent element. Put the 2 paragraphs of UserOutput into a div.
+
+2) if its not a string value, enclose the values for the parameters of the components in curly braces. Eg name.
+
+3) css syntax
+
+4) style syntax
+
+5) In normal html, the attributes are case insensitive. But in JSX, you can use case sensitive name.
+
+6) If you want to use 'this' keyword in your function, you will have to use the syntax of the handler (arrow function). If not, you can also use the syntax like that of render() method.* (Assignment solution video)
+
+7) 2 way binding includes the input box displaying current username and the the other component changes based on what is typed in the input text box.

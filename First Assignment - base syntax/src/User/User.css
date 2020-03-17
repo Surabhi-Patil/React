@@ -1,0 +1,8 @@
+.User {
+    width: 60%;
+    margin:16px auto;
+    border: 2px solid black;
+    background-color: #ccc;
+    padding: 16px;
+    text-align: center;
+}
