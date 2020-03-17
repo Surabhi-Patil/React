@@ -1,0 +1,83 @@
+1) You cannot use class in JSX elements because class is reserved keyword in JavaScript. We use className instead.
+
+2) <div className="App">
+    <h1>Hi, I am a react app </h1>
+   </div> --> This is not html. Its JSX. Its get compiled to JavaScript in the end.
+
+ is exactly same as
+
+ return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hi, I\'m a react app'));
+ That is why we need to import react in every component.
+
+ 3) JSX expression must have only one root element. This has changed with react 16 where you can return adjacent elements. But its still a best practice to wrap everything in one root element per component. Makes it easy to apply styling.
+
+ 4) In convention, give your component and your file a name starting with a capital letter.
+
+ 5) In JSX, all the elements starting with a lower case are reserved for native HTML elements. You can also have a component called "Div". But you'll need to import it with a name beginning with capital D.
+
+ 6) If we have some dynamic code which we want to be interpreted as JavaScript code and not as text JSX, we need to wrap it in curly braces. We cannot define a JS class, but we can execute one line expressions like calculations or function calls. We can call a function that does some complex stuff. We cannot have block statements like if condition.
+
+ 7) In functional components, its props.name. In class components, it will be this.props.
+
+ 8) Children is a reserved keyword. It refers to any elements (including plain text) between the opening and closing tags of our component. You can nest complex html betweeen this too( list elements, other components, etc)
+
+ 9) State property can only be defined in components that extend 'Component' class. Not in functional components. You can manage state in functional components using hooks.
+
+ 10) You should use as much functional components as possible, beacuse having states in multiple class components becomes difficult to manage when the app grows.
+
+ 11) State can be any object with any properties.
+
+ 12) props and state are CORE concepts of React. Actually, only changes in props and/ or state trigger React to re-render your components and potentially update the DOM in the browser
+
+ 13) For the methods that you don't actively call, but assign as a event handler, the naming convention is abcHandler.
+
+ 14) Do not add paranthesis after handler function call because react will then immediately invoke the function as it comes across it. (Chapter 40)
+
+ 15) setState will not discard your state and replace it. It will compare it to the previous state object and replace only that which is updated. It will not touch any other parameters.
+
+ 16) useState() returns a state in exactly 2 elements. The first element is always the current state, the second element is the function that will update the state in a way that React will detect and will rerender the DOM.
+
+ 17) The second element returned by useState i.e the function which updates the state will discard your state and replace it. It will not "update" your current state. You have to manually make sure to include all other unchanged properties. The alternative is to call useState again to divide the state into pieces.
+
+ 18) A stateful component is the one that manages the state, irrespective of whether it is a class based component or a functional component using hooks. Stateless components have no internal state management.
+
+ 19) It is a good practice to use/create as many stateless/dumb/presentational components as possible.
+
+ 20) You can pass methods in props so that you can use a function to modify the state from the other component which doesn't have direct access to that function.
+
+ 21) Use inline style to scope the styling to a single element. Or else use a css file.
+
+ 22) If you use arrow function as opposed to normal function, the arraw function will always, under all circumstances make sure that "this" in the function refers to the current class. This is due to internals of JavaScript.
+
+ 23) React needs the key property to compare the virtual DOM to the actual DOM (the dom which is currently rendered to the DOM which was rendered previously) to check which items are still present and which are not.
+
+ 24) You cannot use pseudo-selectors in inline styling.
+
+ 25) To edit styles dynamically, you just manipulate the style object like in normal javascript and then bind the object to the element.
+
+ 26) Radium is a popular package for react which enables us to use pseudo-selectors and media queries with inline styling. 
+
+ 27) export default Radium(App); --> Here, radium is called a higher order component. Its just a component wrapping another component and adding some extra functionality to it. You can also do it with sunctional components.
+
+ 28) styled-components.com
+
+ 29) styled.xxx always returns a component. So you can just store it in a variable. You do not need to use arrow functions or make calls.
+
+ 30) The styled components does not add inline css to the elements. Instead it creates a style tag, adds it to the head of the document and then applies the styles using classes to the appropriate elements.
+
+ 31) You don't need the quotes in styled components because you write regular css.
+
+ 32) If you are using react-scripts 2.x or higher, you need to write 
+ "import classes from './Person.module.css';" and rename the css file to Person.module.css. Then it will automatically work without ejecting. You can skip the eject step.
+
+ -----Understanding error messages
+
+ 33) The source map allows you to see your code and debug it in chrome developer tools even though the code that is shipped is bundled or minimized. This is not the code running in the browser.
+
+ 34) React Developer tools - chrome extensions
+
+ 35) ErrorBoundary is a high level component. It simply wraps other component to handle any error that component might throw.
+
+ 36) We need to add the key to the ErrorBoundary component since that is now the parent component and the key in the map method must always be on the outer component.
+
+ 37) Do not use ErrorBoundary in the entire code. Only use them if you know you have a code that might fail and you can't control that. Do not use them for places which might have developer bugs. 
